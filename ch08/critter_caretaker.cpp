@@ -11,6 +11,7 @@ class Critter {
 		void Talk();
 		void Eat(int food = 4);
 		void Play(int fun = 4);
+		void GetMembers();
 	
 	private:
 		int m_Hunger;
@@ -47,6 +48,12 @@ void Critter::Talk() {
 	} else {
 		cout << "happy.\n";
 	}
+	if (m_Hunger > 5) {
+		cout << "I am very hungry\n";
+	}
+	if (m_Boredom > 5) {
+		cout << "I am very bored\n";
+	}
 	PassTime();
 }
 
@@ -68,6 +75,11 @@ void Critter::Play(int fun) {
 		m_Boredom = 0;
 	}
 	PassTime();
+}
+
+void Critter::GetMembers() {
+	cout << "The hunger level is: " << m_Hunger << endl;
+	cout << "The boredom level is: " << m_Boredom << endl;
 }
 
 int main() {
@@ -99,8 +111,11 @@ int main() {
 			case 3:
 				crit.Play();
 				break;
+			case 4:
+				crit.GetMembers();
+				break;
 			default:
-				cout << "\nSorry, but " << choice << "isn't a valid choice.\n";
+				cout << "\nSorry, but " << choice << " isn't a valid choice.\n";
 		}
 
 	} while (choice != 0);
